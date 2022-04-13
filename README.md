@@ -1,2 +1,3 @@
 # RedditLooter
-API-less program to download pictures and videos from Reddit.
+**API-Less** program to download pictures and videos from Reddit.
+
