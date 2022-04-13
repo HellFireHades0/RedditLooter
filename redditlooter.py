@@ -8,7 +8,7 @@ from youtube_dl import YoutubeDL
 
 
 def get_images(subreddit,
-               listing='top',
+               listing='hot',
                limit_results=10,
                timeframe='',
                path=os.getcwd(),
@@ -32,7 +32,7 @@ def get_images(subreddit,
 
 
 def get_gifs(subreddit,
-             listing='top',
+             listing='hot',
              limit_results=10,
              timeframe='',
              path=os.getcwd(),
@@ -55,7 +55,7 @@ def get_gifs(subreddit,
 
 
 def get_videos(subreddit,
-               listing='top',
+               listing='hot',
                limit_results=10,
                timeframe='',
                path=os.getcwd(),
