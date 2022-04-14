@@ -7,7 +7,6 @@ import tqdm
 import fake_useragent
 import youtube_dl
 
-
 count = 0
 track = []
 
@@ -38,52 +37,62 @@ def get_images(subreddit,
             if url_only:
                 print(f"{i['data']['author']} {i['data']['url']}")
     if count < int(track[0]):
-        get_images(subreddit, listing, media_count+1, timeframe, path, url_only)
+        get_images(subreddit, listing, media_count + 1, timeframe, path, url_only)
 
 
 def get_gifs(subreddit,
              listing='top',
-             limit_results=10,
-             timeframe='month',
+             media_count=10,
+             timeframe='',
              path=os.getcwd(),
              url_only=False):
+    global count, track
+    track.append(media_count)
     listing = listing.lower()
     if path != os.getcwd() and not os.path.isdir(path):
         os.makedirs(path)
     if listing == 'top':
-        url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?limit={limit_results}&t={timeframe}'
+        url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?limit={media_count}&t={timeframe}'
     else:
-        url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?limit={limit_results}'
+        url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?limit={media_count}'
     r = requests.get(url, headers={'User-Agent': fake_useragent.UserAgent().random}).json()
     for i in r['data']['children']:
         if str(i['data']['url']).startswith('https://i.redd.it') and \
                 str(i['data']['url']).endswith('gif'):
-            if not os.path.isfile(rf"{path}{str(i['data']['url']).split('/')[-1]}") and not url_only:
-                download_images(i['data']['url'], rf"{path}\{str(i['data']['url']).split('/')[-1]}")
+            if not os.path.isfile(rf"{path}\{str(i['data']['url']).split('/')[-1]}"):
+                if not url_only:
+                    download_images(i['data']['url'], rf"{path}\{str(i['data']['url']).split('/')[-1]}")
             if url_only:
-                print(i['data']['url'])
+                print(f"{i['data']['author']} {i['data']['url']}")
+    if count < int(track[0]):
+        get_gifs(subreddit, listing, media_count + 1, timeframe, path, url_only)
 
 
 def get_videos(subreddit,
                listing='top',
-               limit_results=10,
-               timeframe='month',
+               media_count=10,
+               timeframe='',
                path=os.getcwd(),
                url_only=False):
+    global count, track
+    track.append(media_count)
     listing = listing.lower()
     if path != os.getcwd() and not os.path.isdir(path):
         os.makedirs(path)
     if listing == 'top':
-        url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?limit={limit_results}&t={timeframe}'
+        url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?limit={media_count}&t={timeframe}'
     else:
-        url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?limit={limit_results}'
+        url = f'https://www.reddit.com/r/{subreddit}/{listing}.json?limit={media_count}'
     r = requests.get(url, headers={'User-Agent': fake_useragent.UserAgent().random}).json()
     for i in r['data']['children']:
         if str(i['data']['url']).startswith('https://v.redd.it'):
-            if not os.path.isfile(rf"{path}{str(i['data']['url']).split('/')[-1]}") and not url_only:
-                download_videos(i['data']['url'], rf"{path}\{str(i['data']['url']).split('/')[-1]}.mp4")
+            if not os.path.isfile(rf"{path}\{str(i['data']['url']).split('/')[-1]}"):
+                if not url_only:
+                    download_videos(i['data']['url'], rf"{path}\{str(i['data']['url']).split('/')[-1]}")
             if url_only:
-                print(i['data']['url'])
+                print(f"{i['data']['author']} {i['data']['url']}")
+    if count < int(track[0]):
+        get_videos(subreddit, listing, media_count + 1, timeframe, path, url_only)
 
 
 def download_images(url, path_to_file=''):
