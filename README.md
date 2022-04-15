@@ -33,7 +33,7 @@
           Default value: new
 
     media_count
-        - Amount of images to download
+        - Amount of videos to download
           Default value: 10
   
     timeframe
@@ -44,7 +44,7 @@
           Default value: current working directory
     
     url_only
-        - Prints the direct link to the image
+        - Prints the direct link to the video
           Default value: False
 ## Redditlooter.get_gifs
     Subreddit: Required
@@ -55,7 +55,7 @@
           Default value: new
 
     media_count
-        - Amount of images to download
+        - Amount of gif to download
           Default value: 10
   
     timeframe
@@ -66,7 +66,7 @@
           Default value: current working directory
     
     url_only
-        - Prints the direct link to the image
+        - Prints the direct link to the gif
           Default value: False
 ## Redditlooter.get_user_data
-<iframe src="https://youtu.be/zR5DoUUovc0"> </iframe>
+
