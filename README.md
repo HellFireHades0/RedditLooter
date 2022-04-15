@@ -72,10 +72,8 @@
 
     user_data: Required
         - username to get the data from 
-
-    from Redditlooter import get_user_data
+```
+from Redditlooter import get_user_data
   
-    get_user_data('letthedarknesstake')
-
-
-    
+get_user_data('letthedarknesstake')
+```
