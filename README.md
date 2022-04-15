@@ -72,7 +72,7 @@
 
     user_data: Required
         - username to get the data from 
-```
+```python
 from Redditlooter import get_user_data
   
 get_user_data('letthedarknesstake')
