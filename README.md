@@ -70,3 +70,12 @@
           Default value: False
 ## Redditlooter.get_user_data
 
+    user_data: Required
+        - username to get the data from 
+
+    from Redditlooter import get_user_data
+  
+    get_user_data('letthedarknesstake')
+
+
+    
