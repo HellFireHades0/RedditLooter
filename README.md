@@ -8,7 +8,7 @@
 
     Listing 
         - Sort the posts according to 'hot', 'new', 'rising', 'top'
-          Default value: new
+          Default value: top
 
     media_count
         - Amount of images to download
@@ -30,7 +30,7 @@
 
     Listing 
         - Sort the posts according to 'hot', 'new', 'rising', 'top'
-          Default value: new
+          Default value: top
 
     media_count
         - Amount of videos to download
@@ -52,7 +52,7 @@
 
     Listing 
         - Sort the posts according to 'hot', 'new', 'rising', 'top'
-          Default value: new
+          Default value: top
 
     media_count
         - Amount of gif to download
@@ -77,3 +77,19 @@ from Redditlooter import get_user_data
   
 get_user_data('letthedarknesstake')
 ```
+## Redditlooter.get_posts
+Subreddit: Required
+        - The name of the subreddit to get data 
+
+    Listing 
+        - Sort the posts according to 'hot', 'new', 'rising', 'top'
+          Default value: top
+
+    media_count
+        - Amount of posts to show
+          Default value: 10
+  
+    timeframe
+        - Sort the posts according to 'day', 'week', 'month', 'year', 'all'
+          Default value: month
+ 
