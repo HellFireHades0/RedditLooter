@@ -1,5 +1,5 @@
 # RedditLooter
-**API-Less** program to download pictures and videos from Reddit.
+**API-Less** program to download pictures and videos from Reddit **without limit**.
 
 ## Redditlooter.get_images 
    
